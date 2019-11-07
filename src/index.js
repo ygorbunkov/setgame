@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import App from './components/containers/App'
+import { App } from './components/app'
 import { appReducer } from './store/reducers'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
