@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { App } from './components/app'
+import { Container as Board } from './components/containers/board'
 import { appReducer } from './store/reducers'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
@@ -12,7 +12,7 @@ store.dispatch({type: 'DEAL'})
 
 render(
 	<Provider store={store}>
-		<App />
+		<Board />
 	</Provider>, 
 	rootNode
 )
