@@ -3,7 +3,7 @@ import { Card, CardActionArea } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import Shape from './shape'
 
-const PlayCard = props => {
+const PlayCard = ({position,qty,onCardPick,...shapeColorFill}) => {
 	
 	const 	useStyles = makeStyles({
 				card: {
@@ -11,11 +11,10 @@ const PlayCard = props => {
 					height: 200
 				}
 			}),
-			classes = useStyles(),
-			{position, qty, ...shapeColorFill} = props
+			classes = useStyles()
 	
 	return (
-		<Card>
+		<Card onClick={() => onCardPick(position)}>
 			<CardActionArea className={classes.card} position={position}>
 				{
 					Array.from({length: qty}, (_,key) => <Shape {...shapeColorFill} key={key} />)

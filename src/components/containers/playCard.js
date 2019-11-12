@@ -1,11 +1,11 @@
 import PlayCard from '../ui/playCard'
 import { connect } from 'react-redux'
 
-const mapStateToProps = (state, ownProps) => {	
-	const 	{position} = ownProps,
-			{shape, color, fill, qty} = state.board[position]		
-	return 	{shape, color, fill, qty}
-}
+const mapStateToProps = (state, {position}) => state.board[position]
+
+const mapDispatchToProps = dispatch => ({
+	onCardPick: position => dispatch({type:'PICK',payload:position})
+})
 
 
-export const Container = connect(mapStateToProps)(PlayCard)
+export const Container = connect(mapStateToProps, mapDispatchToProps)(PlayCard)
