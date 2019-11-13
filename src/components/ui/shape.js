@@ -10,6 +10,11 @@ const	useStyles = makeStyles({
 				margin: '5px auto'
 			},
 		}),
+		colorMap = {
+			purple: '#7953A2',
+			red: '#D01D55',
+			green: '#0FA24A'
+		},
 		getFill = (fill,color) => ({
 			striped: `url(#${color}stripes)`,
 			solid: color,
@@ -27,11 +32,11 @@ const Shape = ({shape, color, fill}) => {
 			
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" className={styles.shape}>
-			<defs>{fill == 'striped' ? <Stripes color={color} /> : null}</defs>
+			<defs>{fill == 'striped' ? <Stripes color={colorMap[color]} /> : null}</defs>
 			<path 
 				d={shapeMap[shape]} 
-				fill={getFill(fill,color)}
-				stroke={color}
+				fill={getFill(fill,colorMap[color])}
+				stroke={colorMap[color]}
 				strokeWidth="2"
 				/>
 		</svg>

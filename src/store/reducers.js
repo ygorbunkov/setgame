@@ -20,13 +20,14 @@ export const appReducer = (state = initialState, action) => {
 			if(!state.deck.length){
 				deck = genDeck()
 				board = []
-				while (board.length < 12 || !hasSet(board)) board.push(...deck.splice(0,3))
 			}
 			
 			else if(state.board.includes(null)) {
 				board = state.board.map(card => !card ? deck.pop() : card)
 			}
 
+			while (board.length < 12 || !hasSet(board)) board.push(...deck.splice(0,3))
+				
 			return {...state, deck, board}
 			
 		}

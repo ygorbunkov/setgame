@@ -1,27 +1,16 @@
 import React from 'react'
 import { Grid, Card, CardActionArea } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
 import { Container as PlayCard } from '../containers/playCard'
 
-export const Board = props => {
-	
-	const 	useStyles = makeStyles({
-				grid: {
-					width: 500,
-					margin: 'auto'
-				}
-			}),
-			styles = useStyles()
+export const Board = ({boardSize}) => (
 
-	
-	return (
-		<Grid container spacing={3} alignContent="center" className={styles.grid}>
+		<Grid container spacing={3} alignContent="center" style={{marginTop:75}}>
 			{
-				Array.from({length: props.boardSize}, (_,key) => (
+				Array.from({length: boardSize}, (_,key) => (
 					<Grid item key={key}  md={4}>
 						<PlayCard position={key} />
 					</Grid>
 				))
 			}
 		</Grid>
-)}
+)
