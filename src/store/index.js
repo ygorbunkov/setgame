@@ -1,16 +1,12 @@
-import { genDeck, isSet, hasSet } from '../core/game'
+import * as coreFunctions from '../core/game'
+import * as actions from './actions'
+import initialState from './initialState.json'
 
-const 	initialState = {
-			deck: [],
-			board: [],
-			pool: [],
-			score: 0
-		},
-		DEAL = 'DEAL',
-		PICK = 'PICK',
-		RESTART = 'RESTART'
+const 	{DEAL, PICK, RESTART, COMPLETE} = actions,
+		{genDeck, isSet, hasSet} = coreFunctions
 
-export const appReducer = (state = initialState, action) => {
+
+const appReducer = (state = initialState, action) => {
 	
 	switch(action.type){
 		
@@ -66,3 +62,5 @@ export const appReducer = (state = initialState, action) => {
 		default : return state
 	}
 }
+
+export default appReducer
