@@ -1,0 +1,7 @@
+.app {
+	width: 920px;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 200px 500px 200px;
+	grid-gap: 10px;
+}

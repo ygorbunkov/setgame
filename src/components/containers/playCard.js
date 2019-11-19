@@ -1,7 +1,12 @@
 import PlayCard from '../ui/playCard'
 import { connect } from 'react-redux'
 
-const mapStateToProps = (state, {position}) => state.board[position]
+const mapStateToProps = ({board, pool}, {position}) => (
+	{
+		...board[position],
+		inpool: pool.includes(position)
+	}
+)
 
 const mapDispatchToProps = dispatch => ({
 	onCardPick: position => dispatch({type:'PICK',payload:position})

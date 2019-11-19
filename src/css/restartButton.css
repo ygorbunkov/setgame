@@ -1,0 +1,25 @@
+.restarticon {
+	background-color: #FAA41A;
+	height: 70px !important;
+	width: 70px !important; 
+	border-radius: 2em; 
+	color: white;
+}
+
+.restartbutton {
+	margin-top: 100px !important;
+	margin-left: 55px !important;
+}
+
+@keyframes rotation {
+	10% {transform: rotate(0deg);}
+	20% {transform: rotate(30deg);}
+	80% {transform: rotate(330deg);}
+	100% {transform: rotate(360deg);}
+}
+
+.spin {
+	animation-name: rotation;
+	animation-duration: 1s;
+	animation-iteration-count: 2;
+}

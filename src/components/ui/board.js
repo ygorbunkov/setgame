@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Card, CardActionArea } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import { Container as PlayCard } from '../containers/playCard'
 
 export const Board = ({boardSize}) => (
