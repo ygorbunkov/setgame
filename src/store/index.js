@@ -21,9 +21,12 @@ const appReducer = (state = initialState, action) => {
 			}
 			
 			else if(board.includes(null)) {
-				const 	noNullBoard = board.filter(card => card),
-						noGapBoard = board.map(card => !card ? deck.pop() : card)
-				board = board.length > 11 && hasSet(noNullBoard) ? noNullBoard : noGapBoard
+				const 	noNullBoard = board.filter(card => card)
+				
+				board = noNullBoard.length > 11 && 
+				hasSet(noNullBoard) ? 
+				noNullBoard : 
+				board.map(card => !card ? deck.pop() : card)
 			}
 
 			while ((board.length < 12 || !hasSet(board)) && deck.length) board.push(...deck.splice(0,3))

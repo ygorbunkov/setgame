@@ -4,8 +4,8 @@ import deckSize from '../../img/deck.svg'
 import stopWatch from '../../img/time.svg'
 import { Container as ScoreCard } from '../containers/scoreCard'
 import { Container as DeckSize } from '../containers/deckSize'
-import { Container as RestartButton} from '../containers/restartButton'
-import Stopwatch from './stopwatch'
+import { Container as RestartButton } from '../containers/restartButton'
+import { Container as Stopwatch } from '../containers/stopwatch'
 
 const RightPane = ({score}) => (
 		<div>
