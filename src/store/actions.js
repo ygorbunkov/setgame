@@ -1,4 +1,5 @@
 export const 	DEAL = 'DEAL',
 				PICK = 'PICK',
 				RESTART = 'RESTART',
-				COMPLETE = 'COMPLETE'
+				COMPLETE = 'COMPLETE',
+				TIMETICK = 'TIMETICK'

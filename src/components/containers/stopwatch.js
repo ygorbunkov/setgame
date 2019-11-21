@@ -1,16 +1,11 @@
-import React, { useEffect, useRef } from 'react'
 import Stopwatch from '../ui/stopwatch'
+import { connect } from 'react-redux'
 
-export const Container = () => {
-	
-	const count = useRef(0)
-	
-	let currentCount = count.current
-	
-	useEffect(() => count.current = currentCount)
-	
-	currentCount += 1
-	
-	return  <Stopwatch count={currentCount} />
-}
+const mapStateToProps = ({time}) => ({time})
+
+const mapDispatchToProps = dispatch => ({
+	timeTick: () => dispatch({type: 'TIMETICK'})
+})
+
+export const Container = connect(mapStateToProps, mapDispatchToProps)(Stopwatch)
 

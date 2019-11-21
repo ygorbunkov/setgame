@@ -2,5 +2,6 @@
 	"deck": [],
 	"board": [],
 	"pool": [],
-	"score": 0
+	"score": 0,
+	"time": 0
 }

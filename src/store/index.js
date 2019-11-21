@@ -2,7 +2,7 @@ import * as coreFunctions from '../core/game'
 import * as actions from './actions'
 import initialState from './initialState.json'
 
-const 	{DEAL, PICK, RESTART, COMPLETE} = actions,
+const 	{DEAL, PICK, RESTART, COMPLETE, TIMETICK} = actions,
 		{genDeck, isSet, hasSet} = coreFunctions
 
 
@@ -60,6 +60,11 @@ const appReducer = (state = initialState, action) => {
 		
 		case RESTART : {
 			return appReducer(initialState, {type: DEAL})
+		}
+		
+		case TIMETICK : {
+			let {time} = state
+			return {...state, time:time+1}
 		}
 		
 		default : return state
