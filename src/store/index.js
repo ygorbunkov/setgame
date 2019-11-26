@@ -67,6 +67,10 @@ const appReducer = (state = initialState, action) => {
 			return {...state, time:time+1}
 		}
 		
+		case COMPLETE : {
+			return {...state, complete: true}
+		}
+		
 		default : return state
 	}
 }

@@ -3,5 +3,6 @@
 	"board": [],
 	"pool": [],
 	"score": 0,
-	"time": 0
+	"time": 0,
+	"complete": false
 }
