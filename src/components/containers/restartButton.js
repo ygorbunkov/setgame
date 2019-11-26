@@ -1,8 +1,9 @@
 import { connect } from 'react-redux'
+import * as actions from '../../store/actions'
 import RestartButton from '../ui/restartButton'
 
-const mapDispatchToProps = dispatch => ({
-	onHitRestart: () => dispatch({type: 'RESTART'})
-})
-
-export const Container = connect(null, mapDispatchToProps)(RestartButton)
+const 	{ RESTART } = actions,
+		mapDispatchToProps = dispatch => ({onHitRestart: () => dispatch({type: RESTART})}),
+		Container = connect(null, mapDispatchToProps)(RestartButton)
+		
+export { Container }		

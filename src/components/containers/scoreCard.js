@@ -1,6 +1,7 @@
 import ScoreCard from '../ui/scoreCard'
 import { connect } from 'react-redux'
 
-const mapStateToProps = ({score}) => ({score})
-
-export const Container = connect(mapStateToProps)(ScoreCard)
+const 	mapStateToProps = ({score}) => ({score}),
+		Container = connect(mapStateToProps)(ScoreCard)
+		
+export { Container }		

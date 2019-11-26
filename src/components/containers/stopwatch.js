@@ -1,11 +1,11 @@
 import Stopwatch from '../ui/stopwatch'
+import * as actions from '../../store/actions'
 import { connect } from 'react-redux'
 
-const mapStateToProps = ({time}) => ({time})
-
-const mapDispatchToProps = dispatch => ({
-	timeTick: () => dispatch({type: 'TIMETICK'})
-})
-
-export const Container = connect(mapStateToProps, mapDispatchToProps)(Stopwatch)
+const	{ TIMETICK } = actions,
+		mapStateToProps = ({time}) => ({time}),
+		mapDispatchToProps = dispatch => ({timeTick: () => dispatch({type: 'TIMETICK'})}),
+		Container = connect(mapStateToProps, mapDispatchToProps)(Stopwatch)
+		
+export { Container }		
 
