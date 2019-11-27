@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
 import { Typography } from '@material-ui/core'
 
-const Stopwatch = ({time,timeTick}) => {
+const Stopwatch = ({time, timeTick, complete}) => {
 	
-	useEffect(() => {window.stopwatch = setInterval(timeTick, 1000)},[])
+	useEffect(() => {
+		if(complete) clearInterval(window.stopwatch)
+		else if(!time) window.stopwatch = setInterval(timeTick, 1000)
+	})
 	
 	const formatTime = seconds => {
 		const splitUnits = [

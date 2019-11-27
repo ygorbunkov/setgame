@@ -1,0 +1,10 @@
+.modalresult {
+    width: 30em;
+    height: 20em;
+	background-color: #fff;
+	outline: none;
+    border-radius: 2em;
+    margin: 20em 45em;
+    text-align: center;
+    box-shadow: 0 0 0 .4em #FAA41A;
+}	

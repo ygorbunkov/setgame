@@ -13,7 +13,7 @@ const appReducer = (state = initialState, action) => {
 		case DEAL : {
 			
 			let {deck, board, pool} = state
-	
+
 			if(!board.length){
 				deck = genDeck()
 				board = []
@@ -21,8 +21,7 @@ const appReducer = (state = initialState, action) => {
 			}
 			
 			else if(board.includes(null)) {
-				const 	noNullBoard = board.filter(card => card)
-				
+				const noNullBoard = board.filter(card => card)
 				board = noNullBoard.length > 11 && 
 				hasSet(noNullBoard) ? 
 				noNullBoard : 
@@ -36,7 +35,7 @@ const appReducer = (state = initialState, action) => {
 		}
 		
 		case PICK : {
-			let 	{pool, board, score} = state,
+			let 	{pool, board, score, deck} = state,
 					pos = action.payload
 	
 			if(pool.includes(pos)) pool = pool.filter(e => e != pos)
@@ -45,10 +44,13 @@ const appReducer = (state = initialState, action) => {
 				const	tripletIndexes = [...pool,pos],
 						triplet = tripletIndexes.map(p => board[p])						
 				if(isSet(triplet)) {
-					board = board.map((card,i) => tripletIndexes.includes(i) ? null : card)
-					state = appReducer({...state, board}, {type: DEAL})
-					board = state.board
 					score++
+					if(!deck.length && (board.length < 13 || !hasSet(board.filter((card,i) => !tripletIndexes.includes(i))))) state = appReducer(state, {type: COMPLETE})
+					else {
+						board = board.map((card,i) => tripletIndexes.includes(i) ? null : card)
+						state = appReducer({...state, board}, {type: DEAL})
+						board = state.board
+					}
 				}
 				pool.length = 0
 			}

@@ -3,8 +3,8 @@ import * as actions from '../../store/actions'
 import { connect } from 'react-redux'
 
 const	{ TIMETICK } = actions,
-		mapStateToProps = ({time}) => ({time}),
-		mapDispatchToProps = dispatch => ({timeTick: () => dispatch({type: 'TIMETICK'})}),
+		mapStateToProps = ({time, complete}) => ({time, complete}),
+		mapDispatchToProps = dispatch => ({timeTick: () => dispatch({type: TIMETICK})}),
 		Container = connect(mapStateToProps, mapDispatchToProps)(Stopwatch)
 		
 export { Container }		

@@ -6,11 +6,6 @@
 	color: white;
 }
 
-.restartbutton {
-	margin-top: 100px !important;
-	margin-left: 55px !important;
-}
-
 @keyframes rotation {
 	10% {transform: rotate(0deg);}
 	20% {transform: rotate(30deg);}
@@ -22,4 +17,10 @@
 	animation-name: rotation;
 	animation-duration: 1s;
 	animation-iteration-count: 2;
+}
+
+.restartbutton {
+	position: relative;
+	top: 5em;
+	left: 2.5em;
 }
