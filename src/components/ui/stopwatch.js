@@ -9,6 +9,7 @@ const Stopwatch = ({time, timeTick, complete}) => {
 	})
 	
 	const formatTime = seconds => {
+		if(!seconds) return '0s'
 		const splitUnits = [
 			{unit: 'd', multiplier: 864E2},
 			{unit: 'h', multiplier: 36E2},
@@ -17,9 +18,9 @@ const Stopwatch = ({time, timeTick, complete}) => {
 		]
 		return splitUnits
 			.reduce((r,{unit,multiplier},i,s) => 
-				r.length < 2 && seconds > multiplier ?
-				(r.push({unit, val: 0|seconds/multiplier}), seconds = seconds%multiplier, r) :
-				r, [])
+				r.length > 2 || seconds < multiplier ?
+				r :
+				(r.push({unit, val: 0|seconds/multiplier}), seconds = seconds%multiplier, r), [])
 			.map(({unit,val}) => val+unit)
 			.join('')
 	}

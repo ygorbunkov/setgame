@@ -5,9 +5,9 @@ import '../../css/restartButton.css'
 
 
 
-const RestartButton = ({onHitRestart}) => (
+const RestartButton = ({onHitRestart,style}) => (
 
-		<IconButton className="restartbutton" onClick={() => onHitRestart()}>
+		<IconButton style={style} onClick={() => onHitRestart()}>
 			<RefreshIcon className="restarticon" />
 		</IconButton>
 		
