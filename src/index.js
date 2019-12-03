@@ -8,8 +8,6 @@ import { Provider } from 'react-redux'
 const 	rootNode = document.getElementById('root'),
 		store = createStore(appReducer)
 		
-window.store = store		
-		
 store.dispatch({type: 'DEAL'})		
 
 render(

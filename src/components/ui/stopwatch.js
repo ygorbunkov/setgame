@@ -18,9 +18,10 @@ const Stopwatch = ({time, timeTick, complete}) => {
 		]
 		return splitUnits
 			.reduce((r,{unit,multiplier},i,s) => 
-				r.length > 2 || seconds < multiplier ?
+				seconds < multiplier ?
 				r :
 				(r.push({unit, val: 0|seconds/multiplier}), seconds = seconds%multiplier, r), [])
+			.slice(0,2)
 			.map(({unit,val}) => val+unit)
 			.join('')
 	}

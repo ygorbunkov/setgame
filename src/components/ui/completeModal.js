@@ -15,7 +15,7 @@ const CompleteModal = ({complete,score,time}) => (
 				<Typography variant="h2" style={{paddingTop:'20%'}}>{0|time/score}</Typography>
 				<br/>
 				<Typography>seconds/set</Typography>
-				<RestartButton />
+				<RestartButton style={{marginTop:'15%'}}/>
 			</div>
 		</Fade>
 	</Modal>
