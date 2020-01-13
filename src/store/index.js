@@ -12,7 +12,9 @@ const appReducer = (state = initialState, action) => {
 		
 		case DEAL : {
 			
-			let {deck, board, pool} = state
+			let deck = [...state.deck],
+			    board = [...state.board],
+			    pool = [...state.pool]
 
 			if(!board.length){
 				deck = genDeck()
