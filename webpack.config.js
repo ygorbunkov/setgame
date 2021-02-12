@@ -1,17 +1,17 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
 
-const webpackConfigDir = path.join(__dirname, './config/webpack')
+const { merge } = require('lodash')
 
-const configModes = ['baseConfig', 'devConfig', 'prodConfig']
-const configSets = Object.assign(
-    {},
-    ...configModes.map(configMode => ({
-        [configMode]: require(path.join(webpackConfigDir, configMode, '.js'))
-    }))
-)
+const webpackConfigDir = path.join(__dirname, "./config/webpack");
 
-module.exports = ({NODE_ENV}) => ({
-    ...baseConfig,
-    ...configSets[NODE_ENV]
-})
+// return the object with combined config
+// with respect to given NODE_ENV aliases
+
+const getConfigByNodeEnvAlias = (...aliasList) =>
+  merge(
+    ...aliasList.map((alias) =>
+      require(path.join(webpackConfigDir, alias + ".js"))
+    )
+  );
+
+module.exports = (_env, { mode }) => getConfigByNodeEnvAlias("base", mode);

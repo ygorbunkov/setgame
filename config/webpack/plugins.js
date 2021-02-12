@@ -1,5 +1,7 @@
-const TerserPlugin = require('terser-webpack-plugin')
+const TerserPlugin = require("terser-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    TerserPlugin
-}
+  TerserPlugin,
+  HtmlWebpackPlugin,
+};
