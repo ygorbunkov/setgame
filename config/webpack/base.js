@@ -1,6 +1,5 @@
+const { CleanWebpackPlugin, HtmlWebpackPlugin } = require("./plugins");
 const path = require("path");
-
-const { HtmlWebpackPlugin } = require("./plugins");
 
 const context = path.resolve(__dirname, "../..");
 
@@ -25,15 +24,9 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(context, "dist"),
-    filename: '[name].[contenthash].js'
+    path: path.resolve(context, "dist/"),
+    filename: "[name].[contenthash].js",
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      appMountId: "app",
-      filename: "index.html",
-    }),
-  ],
   optimization: {
     runtimeChunk: "single",
     splitChunks: {
@@ -46,4 +39,11 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "../../public/index.html"),
+      filename: "index.html",
+    }),
+  ],
 };

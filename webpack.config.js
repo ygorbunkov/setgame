@@ -1,6 +1,6 @@
 const path = require("path");
 
-const { merge } = require('lodash')
+const { merge } = require("webpack-merge");
 
 const webpackConfigDir = path.join(__dirname, "./config/webpack");
 
