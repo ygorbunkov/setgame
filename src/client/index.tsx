@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import { render } from "react-dom";
+import React from 'react'
+import { render } from 'react-dom'
 
-import App from "./components";
+import App from './components'
 
-const rootNode = document.getElementById("root");
+const rootNode = document.getElementById('root')
 
-render(<App />, rootNode);
+render(<App />, rootNode)

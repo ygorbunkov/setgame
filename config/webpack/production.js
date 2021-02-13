@@ -1,18 +1,18 @@
-const { TerserPlugin } = require("./plugins");
+const { TerserPlugin } = require('./plugins')
 
 module.exports = {
-  mode: "production",
-  devtool: "nosources-source-map",
+  mode: 'production',
+  devtool: 'nosources-source-map',
   optimization: {
     splitChunks: {
-      chunks: "all",
+      chunks: 'all'
     },
     minimize: true,
     minimizer: [
       new TerserPlugin({
         parallel: true,
-        extractComments: "all",
-      }),
-    ],
-  },
-};
+        extractComments: 'all'
+      })
+    ]
+  }
+}
