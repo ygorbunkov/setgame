@@ -1,7 +1,16 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
+
+import Routes from './routes'
 
 const App: FC = () => {
-  return <div>I am app</div>;
-};
+  return (
+    <Router>
+      <Switch>
+        <Routes />
+      </Switch>
+    </Router>
+  )
+}
 
-export default App;
+export default App
